@@ -11,7 +11,7 @@ const Login = ({ setIsLoggedIn }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    role: 'admin' // Default role
+    role: 'donar' // Default role
   });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false); // Loading state
@@ -30,9 +30,11 @@ const Login = ({ setIsLoggedIn }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    setLoading(true); // Set loading to true when the process starts
-
-    axios.post('http://localhost:5001/auth/login', formData)
+    setLoading(true);
+  
+    console.log("Submitting form with data:", formData); // Log the data being sent
+  
+    axios.post('http://localhost:5001/api/v1/auth/login', formData)
       .then(res => {
         console.log("Response from server:", res.data);
         localStorage.setItem('token', res.data.token);
@@ -41,11 +43,11 @@ const Login = ({ setIsLoggedIn }) => {
         toast.success('Login successful');
       })
       .catch(err => {
-        console.error("Error:", err);
+        console.error("Error:", err.response ? err.response.data : err); // Log more detailed error response
         toast.error('Login failed. Please check your credentials and try again.');
       })
       .finally(() => {
-        setLoading(false); // Set loading to false when request is finished
+        setLoading(false);
       });
   };
 

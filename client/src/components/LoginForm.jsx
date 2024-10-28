@@ -22,8 +22,10 @@ const LoginForm = ({ formdata, ChangeHandler, submitHandler, loading }) => {
             required
           >
             <option value='admin'>Admin</option>
-            <option value='donor'>Donor</option>
-            <option value='patient'>Patient</option>
+            <option value='donar'>Donor</option>
+            <option value='organization'>Organization</option>
+            <option value='hospital'>Hospital</option>
+
           </select>
         </label>
 

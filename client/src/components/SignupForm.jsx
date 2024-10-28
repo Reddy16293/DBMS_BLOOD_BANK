@@ -19,9 +19,10 @@ const SignupForm = ({ formdata, ChangeHandler, submitHandler }) => {
               onChange={ChangeHandler}
             >
               <option value='' disabled>Select your role</option>
-              <option value='donor'>Donor</option>
-              <option value='recipient'>Recipient</option>
               <option value='admin'>Admin</option>
+            <option value='donar'>Donor</option>
+            <option value='organization'>Organization</option>
+            <option value='hospital'>Hospital</option>
             </select>
           </label>
         </div>
@@ -34,8 +35,8 @@ const SignupForm = ({ formdata, ChangeHandler, submitHandler }) => {
               className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
               required
               type='text'
-              name='fullname'
-              value={formdata.fullname}
+              name='name'
+              value={formdata.name}
               onChange={ChangeHandler}
               placeholder='Enter full name'
             />
@@ -66,8 +67,8 @@ const SignupForm = ({ formdata, ChangeHandler, submitHandler }) => {
               className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
               required
               type='text'
-              name='mobile'
-              value={formdata.mobile}
+              name='phone'
+              value={formdata.phone}
               onChange={ChangeHandler}
               placeholder='Enter your Mobile Number'
             />
@@ -81,8 +82,8 @@ const SignupForm = ({ formdata, ChangeHandler, submitHandler }) => {
             <select
               className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
               required
-              name='bloodType'
-              value={formdata.bloodType}
+              name='bloodGroup'
+              value={formdata.bloodGroup}
               onChange={ChangeHandler}
             >
               <option value='' disabled>Select your blood type</option>
@@ -95,6 +96,66 @@ const SignupForm = ({ formdata, ChangeHandler, submitHandler }) => {
               <option value='O+'>O+</option>
               <option value='O-'>O-</option>
             </select>
+          </label>
+        </div>
+
+        {/* Address Field */}
+        <div className='text-white mb-4'>
+          <label className='font-semibold'>
+            <p>Address</p>
+            <input
+              className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
+              type='text'
+              name='address'
+              value={formdata.address}
+              onChange={ChangeHandler}
+              placeholder='Enter your Address'
+            />
+          </label>
+        </div>
+
+        {/* Website Field */}
+        <div className='text-white mb-4'>
+          <label className='font-semibold'>
+            <p>Website</p>
+            <input
+              className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
+              type='url'
+              name='website'
+              value={formdata.website}
+              onChange={ChangeHandler}
+              placeholder='Enter your Website URL'
+            />
+          </label>
+        </div>
+
+        {/* Hospital Name Field */}
+        <div className='text-white mb-4'>
+          <label className='font-semibold'>
+            <p>Hospital Name</p>
+            <input
+              className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
+              type='text'
+              name='hospitalName'
+              value={formdata.hospitalName}
+              onChange={ChangeHandler}
+              placeholder='Enter your Hospital Name'
+            />
+          </label>
+        </div>
+
+        {/* Organization Name Field */}
+        <div className='text-white mb-4'>
+          <label className='font-semibold'>
+            <p>Organization Name</p>
+            <input
+              className='bg-teal-800 rounded text-cyan-400 px-3 py-2 w-full'
+              type='text'
+              name='organizationName'
+              value={formdata.organizationName}
+              onChange={ChangeHandler}
+              placeholder='Enter your Organization Name'
+            />
           </label>
         </div>
 

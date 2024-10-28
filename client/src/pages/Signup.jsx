@@ -10,14 +10,17 @@ const Signup = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
 
   const [formdata, setFormData] = useState({
-    fullname: '',
+    name: '',
     email: '',
-    mobile: '',
-    skills: '',
+    phone: '',
     password: '',
     confirmpassword: '',
     role: '',
-    bloodType: '' // Added blood type to formdata
+    address: '',
+    bloodGroup: '', // Change this to '' instead of null
+    website: '',
+    organisationName: '',
+    hospitalName: ''
   });
 
   const [loading, setLoading] = useState(false); // Loading state
@@ -36,7 +39,7 @@ const Signup = ({ setIsLoggedIn }) => {
 
     setLoading(true); // Set loading to true when the process starts
 
-    axios.post('http://localhost:5001/auth/signup', formdata)
+    axios.post('http://localhost:5001/api/v1/auth/register', formdata)
       .then((response) => {
         if (response.data.success) {
           toast.success(response.data.message);
